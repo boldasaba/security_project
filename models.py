@@ -16,6 +16,9 @@ class Officer (models.Model):
     birth_date = models.DateField(auto_now=False)
     contact = models.CharField(max_length=15)
     grade = models.CharField(max_length=30)
+    photo = models.ImageField(upload_to="photos/")
+    
+    
     
     def __str__(self):
         return f"{self.name}-{self.address}-{self.gender}-{self.birth_date}-{self.contact}-{self.grade}"

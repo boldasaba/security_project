@@ -2,13 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-    <h1>Edit - {{deployment.deployment_date}}</h1>
+<h1>Edit - {{deployment.deployment_date}}</h1>
     <div class="container">
         <form method="POST">
             {% csrf_token %}
             {{ form |crispy }}
             <input type="Submit" class="btn btn-warning">
-            <input type="Cancel" class="btn btn-danger">
+            <a class="btn btn-danger" href="{% url 'add_deployment_page' %}">Cancel</a>
             {% if message %}
 
             {{message}}

@@ -1,13 +1,15 @@
 {% extends './base.html'%}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1>Edit - {{client.address}}</h1>
-        <div class="container">
+<h1>Edit - {{client.name}}</h1>
+
+    <div class="container">
         <form method="POST">
             {% csrf_token %}
             {{ form |crispy }}
-            <input type="Submit" class="btn btn-warning">
-            <input type="Cancel" class="btn btn-danger">
+            <input type="Submit" class="binputtn btn-warning">
+            <a class="btn btn-danger" href="{% url 'add_client_page' %}">Cancel</a>
+
             {% if message %}
 
             {{message}}
