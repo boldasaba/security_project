@@ -1,0 +1,59 @@
+{% extends './base.html'%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+    
+    <h1>Register Officer.</h1>
+    
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy  }}
+
+            <input type="Submit"class="btn btn-warning">
+        </form>
+        <table class="table table-straped">
+            <thead>
+                <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name.</th>
+                    <th scope="col">Address.</th>
+                    <th scope="col">Gender.</th>
+                    <th scope="col">Birth Date.</th>
+                    <th scope="col">Contact.</th>
+                    <th scope="col">Grade.</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for officer in officers %}
+                    <tr>
+                        <th scope="row">{{officer.id}}</th>
+                        <th scope="row">{{officer.name}}</th>
+                        <th scope="row">{{officer.address}}</th>
+                        <th scope="row">{{officer.gender}}</th>
+                        <th scope="row">{{officer.birth_date}}</th>
+                        <th scope="row">{{officer.contact}}</th>
+                        <th scope="row">{{officer.grade}}</th>
+                        <td>
+                            <a href="{% url 'edit_officer_page' officer.id %}">Edit</a> |
+                            <a href="{% url 'delete_officer_page' officer.id %}"
+                            onclick="return confirm ('Au sure yo want to delet this officer?')">Delete</a> 
+    
+                        </td>
+                    </tr>
+                    {% endfor %}
+                
+            </tbody>
+
+
+
+        </table>
+    <a href="{% url 'add_client_payment_page'%}">Client Payment</a>
+    <a href="{% url 'add_deployment_page'%}">Record Deployment</a>
+    <a href="{% url 'add_client_page'%}">Register Client</a>
+    <a href="{% url 'add_officer_page'%}">Register Officer</a>
+    <a href="{% url 'sign_up_page'%}">SIGN UP</a>
+   
+   
+{% endblock content %}

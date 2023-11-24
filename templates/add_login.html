@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+{% load crispy_forms_tags %}
+<head>
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>LOGIN FROM THIS PAGE</h1>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy  }}
+            <input type="Submit">
+        </form>
+        </div>  
+    </form>
+    
+</body>
+</html>
